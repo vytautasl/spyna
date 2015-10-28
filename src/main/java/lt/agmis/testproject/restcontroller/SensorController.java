@@ -2,6 +2,7 @@ package lt.agmis.testproject.restcontroller;
 
 import lt.agmis.testproject.domain.SensorData;
 import lt.agmis.testproject.dto.OperationResult;
+import lt.agmis.testproject.gcm.GcmSender;
 import lt.agmis.testproject.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ public class SensorController {
     @RequestMapping(produces = {"application/json"}, method = RequestMethod.POST)
     @ResponseBody
     public OperationResult putSensorData(@RequestBody SensorData sensorData) {
+    	GcmSender.get().sendMessage(sensorData);
         return sensorService.putSensorData(sensorData);
     }
 
