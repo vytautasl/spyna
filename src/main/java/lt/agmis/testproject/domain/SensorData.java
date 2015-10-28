@@ -1,8 +1,6 @@
 package lt.agmis.testproject.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -12,15 +10,16 @@ import java.sql.Timestamp;
 public class SensorData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
     @Column(nullable=true, unique=false)
     Double data;
 
-    @Column
+    @Column(nullable=true, unique=false)
     Timestamp log_time;
 
-    @Column
+    @Column(nullable=true, unique=false)
     Integer objectId;
 
     public Integer getId() {

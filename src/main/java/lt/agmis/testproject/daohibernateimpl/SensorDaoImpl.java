@@ -20,10 +20,17 @@ public class SensorDaoImpl implements SensorDao {
 
     @Override
     public OperationResult putSensorData(SensorData sensorData) {
-        sessionFactory.getCurrentSession().saveOrUpdate(sensorData);
         OperationResult putResult = new OperationResult();
-        putResult.setSuccess(true);
-        putResult.setId(sensorData.getId());
+        try
+        {
+            sessionFactory.getCurrentSession().save(sensorData);
+            putResult.setSuccess(true);
+            putResult.setId(sensorData.getId());
+        } catch (Exception e)
+        {
+            putResult.setDescription(e.getMessage());
+        }
+
         return putResult;
     }
 

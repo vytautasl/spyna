@@ -6,11 +6,9 @@ import lt.agmis.testproject.gcm.GcmSender;
 import lt.agmis.testproject.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -24,7 +22,11 @@ public class SensorController {
 
     @RequestMapping(produces = {"application/json"}, method = RequestMethod.POST)
     @ResponseBody
-    public OperationResult putSensorData(@RequestBody SensorData sensorData) {
+    public OperationResult putSensorData(@PathVariable Integer id, @PathVariable Long time, @PathVariable Double data) {
+        SensorData sensorData = new SensorData();
+        sensorData.setData(data);
+        sensorData.setLog_time(new Timestamp(time));
+        sensorData.setObjectId(id);
     	GcmSender.get().sendMessage(sensorData);
         return sensorService.putSensorData(sensorData);
     }
