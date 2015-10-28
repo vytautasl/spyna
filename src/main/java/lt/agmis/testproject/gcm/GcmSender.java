@@ -14,12 +14,12 @@ public class GcmSender {
 	/**
 	 * Server api key
 	 */
-	private static final String API_KEY = "AIzaSyDIIbYeEKgIlSikkS4Y22Y8NiaD9ng2r34";
+	private static final String API_KEY = "";
 	
 	/**
 	 * Device registration id (test)
 	 */
-	private static final String REG_ID = "APA91bEBYPyatoCH1QHhHUzqsYM37BLQVLkm_yDggb-Z8aNkPZ_fR1uQID4acUw0b82ItCXgJH-YEBQsGKMuEakhrN99xzSG2H3FrFNM8QdXOOx9GMG3Jpo";
+	private static final String REG_ID = "";
 	
 	/**
 	 * Gcm sender singleton
