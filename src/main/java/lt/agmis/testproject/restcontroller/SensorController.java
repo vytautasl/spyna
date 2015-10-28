@@ -24,7 +24,7 @@ public class SensorController {
     public OperationResult putSensorData(@PathVariable Integer id, @PathVariable Long time, @PathVariable Double data) {
         SensorData sensorData = new SensorData();
         sensorData.setData(data);
-        //sensorData.setLog_time(new Timestamp(time));
+        sensorData.setLog_time(new Timestamp(time*1000));
         sensorData.setObjectId(id);
         return sensorService.putSensorData(sensorData);
     }
