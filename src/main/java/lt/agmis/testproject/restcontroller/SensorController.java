@@ -25,7 +25,11 @@ public class SensorController {
     public OperationResult putSensorData(@PathVariable Integer id, @PathVariable Long time, @PathVariable Double data) {
         SensorData sensorData = new SensorData();
         sensorData.setData(data);
+<<<<<<< HEAD
         sensorData.setLog_time(new Timestamp(time));
+=======
+        sensorData.setLog_time(new Timestamp(time*1000));
+>>>>>>> origin/vl_adds
         sensorData.setObjectId(id);
     	GcmSender.get().sendMessage(sensorData);
         return sensorService.putSensorData(sensorData);
