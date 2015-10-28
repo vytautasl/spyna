@@ -280,3 +280,4 @@ target/nortal/src/Chart.Doughnut.js
 target/nortal/src/Chart.Line.js
 target/nortal/src/Chart.PolarArea.js
 target/nortal/src/Chart.Radar.js
+target/classes/beans/context/root-context.xml
