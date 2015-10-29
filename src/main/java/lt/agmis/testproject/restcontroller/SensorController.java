@@ -20,7 +20,7 @@ public class SensorController {
     @Autowired
     private SensorService sensorService;
 
-    @RequestMapping(produces = {"application/json"}, method = RequestMethod.POST)
+    @RequestMapping(value = "/put/objectId/{id}/time/{time}/sensorData/{data}", produces = {"application/json"}, method = RequestMethod.GET)
     @ResponseBody
     public OperationResult putSensorData(@PathVariable Integer id, @PathVariable Long time, @PathVariable Double data) {
         SensorData sensorData = new SensorData();
